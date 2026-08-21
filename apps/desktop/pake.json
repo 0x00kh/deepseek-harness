@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/tw93/Pake/main/schema/pake.schema.json",
+  "url": "apps/desktop/launcher",
+  "name": "DeepSeek Harness",
+  "identifier": "ai.deepseek.harness",
+  "title": "DeepSeek Harness",
+  "width": 1440,
+  "height": 960,
+  "minWidth": 960,
+  "minHeight": 640,
+  "hideOnClose": false,
+  "showSystemTray": false,
+  "enableDragDrop": true,
+  "enableFind": true
+}

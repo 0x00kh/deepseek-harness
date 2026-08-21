@@ -187,6 +187,8 @@ Direct dependencies of the `pyproject.toml` manifests, plus `uv` as the developm
 | Package | License | Role |
 | --- | --- | --- |
 | [`@yao-pkg/pkg`](https://github.com/yao-pkg/pkg) | MIT | invoked by `scripts/build-exe-for-python-sdk.ts` to assemble the single-file SDK runtime executable |
+| [`Pake`](https://github.com/tw93/Pake) | GPL-3.0-or-later with Pake Output Exception | compiled by `scripts/desktop/build-pake.ts` to produce the native Tauri desktop shell |
+| [`Node`](https://github.com/nodejs/node) | MIT | bundled by `scripts/desktop/build-pake.ts` as the desktop application runtime |
 
 ## First-party native packages
 

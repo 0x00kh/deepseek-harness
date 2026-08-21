@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>DeepSeek Harness</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell" data-state="starting">
+      <section class="startup" aria-labelledby="startup-title" aria-live="polite">
+        <div class="mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <h1 id="startup-title">DeepSeek Harness</h1>
+        <p id="startup-status">Starting the local agent runtime…</p>
+        <p id="startup-detail" class="detail">The first launch can take a little longer while the runtime prepares your Harness home.</p>
+        <button id="retry" type="button" hidden>Try again</button>
+      </section>
+      <iframe id="harness" title="DeepSeek Harness" allow="clipboard-read; clipboard-write" hidden></iframe>
+    </main>
+    <script type="module" src="./launcher.js"></script>
+  </body>
+</html>

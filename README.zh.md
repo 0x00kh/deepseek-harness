@@ -36,6 +36,16 @@ pnpm dsh web
 
 `pnpm run build` 会准备仓库产物。`pnpm dsh web` 会直接使用这些已构建产物，不会重新构建。
 
+### 构建桌面应用
+
+如需把当前源码打包成适用于当前平台的原生 Pake/Tauri 应用，请安装原生构建环境后运行：
+
+```sh
+pnpm run desktop:build
+```
+
+产物会写入 `dist/desktop/`。构建前置条件、架构、安全设计和 target 选择详见[桌面应用指南](apps/desktop/README.md)。
+
 ## 社区与支持
 
 - 欢迎通过 [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions) 提交反馈或 bug 报告。

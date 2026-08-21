@@ -1,0 +1,171 @@
+:root {
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #191919;
+  background: #f6f7f8;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.shell {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+.shell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 28%, rgb(43 111 255 / 10%), transparent 34rem),
+    #f6f7f8;
+}
+
+.startup {
+  display: flex;
+  width: min(32rem, calc(100vw - 3rem));
+  min-height: 18rem;
+  padding: 3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(0 0 0 / 8%);
+  border-radius: 1.5rem;
+  background: rgb(255 255 255 / 82%);
+  box-shadow: 0 1.5rem 5rem rgb(19 35 68 / 10%);
+  text-align: center;
+  backdrop-filter: blur(18px);
+}
+
+.mark {
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  border-radius: 1.2rem;
+  background: #2b6fff;
+  box-shadow: 0 0.8rem 2rem rgb(43 111 255 / 24%);
+}
+
+.mark span {
+  width: 0.34rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  background: white;
+  animation: pulse 1.15s ease-in-out infinite;
+}
+
+.mark span:nth-child(2) {
+  height: 2rem;
+  animation-delay: 120ms;
+}
+
+.mark span:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.55rem;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+p {
+  margin: 0.8rem 0 0;
+  line-height: 1.55;
+}
+
+.detail {
+  max-width: 26rem;
+  color: #68717d;
+  font-size: 0.9rem;
+}
+
+button {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.1rem;
+  border: 0;
+  border-radius: 0.7rem;
+  color: white;
+  background: #2b6fff;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1f5ee5;
+}
+
+iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.shell[data-state="ready"] .startup {
+  display: none;
+}
+
+.shell[data-state="failed"] .mark span {
+  height: 0.34rem;
+  animation: none;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scaleY(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark span {
+    animation: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f4f5f7;
+    background: #111317;
+  }
+
+  .shell {
+    background:
+      radial-gradient(circle at 50% 28%, rgb(74 132 255 / 15%), transparent 34rem),
+      #111317;
+  }
+
+  .startup {
+    border-color: rgb(255 255 255 / 9%);
+    background: rgb(29 32 38 / 84%);
+    box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 28%);
+  }
+
+  .detail {
+    color: #aeb6c2;
+  }
+}

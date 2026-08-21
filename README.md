@@ -36,6 +36,16 @@ pnpm dsh web
 
 `pnpm run build` prepares the repository artifacts. `pnpm dsh web` uses those built artifacts without rebuilding.
 
+### Build the desktop application
+
+To package the current source as a native Pake/Tauri application for your platform, install the native prerequisites and run:
+
+```sh
+pnpm run desktop:build
+```
+
+Artifacts are written to `dist/desktop/`. See the [desktop application guide](apps/desktop/README.md) for prerequisites, architecture, security, and target selection.
+
 ## Community and support
 
 - Feel free to submit feedback or bug reports through [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions).

@@ -99,6 +99,20 @@ const BUILD_TIME_TOOLS = [
     role: 'invoked by `scripts/build-exe-for-python-sdk.ts` to assemble the single-file SDK runtime executable',
     pinSource: 'scripts/build-exe-for-python-sdk.ts',
   },
+  {
+    name: 'Pake',
+    license: 'GPL-3.0-or-later with Pake Output Exception',
+    repo: 'https://github.com/tw93/Pake',
+    role: 'compiled by `scripts/desktop/build-pake.ts` to produce the native Tauri desktop shell',
+    pinSource: 'scripts/desktop/build-pake.ts',
+  },
+  {
+    name: 'Node',
+    license: 'MIT',
+    repo: 'https://github.com/nodejs/node',
+    role: 'bundled by `scripts/desktop/build-pake.ts` as the desktop application runtime',
+    pinSource: 'scripts/desktop/build-pake.ts',
+  },
 ]
 
 /** The `package.json` fields this generator reads. */
