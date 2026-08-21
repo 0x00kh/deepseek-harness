@@ -26,6 +26,8 @@ import { isEntry, capture, run } from '../release/process.ts'
 export const PAKE_VERSION = '3.15.7'
 /** Node release embedded as the dsh sidecar runtime. */
 export const DESKTOP_NODE_VERSION = '24.18.0'
+/** Root build command that produces the official artifacts required by release packing. */
+export const DESKTOP_WORKSPACE_BUILD_ARGS = ['run', 'build:official'] as const
 
 const PAKE_ARCHIVE = `pake-cli-${PAKE_VERSION}.tgz`
 const PAKE_URL = `https://registry.npmjs.org/pake-cli/-/${PAKE_ARCHIVE}`
@@ -541,7 +543,7 @@ async function main(): Promise<void> {
   mkdirSync(stageRoot, { recursive: true })
   mkdirSync(outputRoot, { recursive: true })
 
-  run('pnpm', ['run', 'build'], { cwd: root })
+  run('pnpm', DESKTOP_WORKSPACE_BUILD_ARGS, { cwd: root })
   const packed = packWorkspace(join(stageRoot, 'packs'))
   const pakeRoot = await stagePake(stageRoot, platform)
   const runtimeRoot = join(pakeRoot, 'src-tauri/resources/runtime')

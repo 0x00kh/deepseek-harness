@@ -12,7 +12,7 @@ DeepSeek Harness 需要一种可直接启动的桌面产物，但不应因此产
 
 桌面应用保持现有 Web 组合不变，并把它作为本地 sidecar 运行。Pake 打包的静态文档通过 Pake 已有的 Tauri Shell 插件启动随应用提供的官方 Node.js 可执行文件。该进程以 `dsh web --host 127.0.0.1 --port 0` 运行打包后的 `@deepseek-ai/dsh` 入口，由操作系统选择空闲的回环端口。启动页从服务现有的 ready 日志行中取得地址，并在占满窗口的 frame 中显示。
 
-仓库构建脚本固定 Pake、Node.js 版本及各平台压缩包的 checksum。脚本先构建 workspace，再打包发布流程使用的同一组 npm package family，计算从 `@deepseek-ai/dsh` 可达的本地 dependency、optional dependency 和 peer dependency 闭包，只把该闭包装入应用资源。随后，Pake 把 Node 可执行文件作为 Tauri sidecar，把 npm 闭包作为普通资源一起打包。Pake 3.15.7 添加生成后的应用图标时会替换已有的资源映射，因此暂存步骤会执行一次与该版本绑定的精确 JavaScript 替换，把图标合并进映射；如果固定的语句发生变化或出现多次，构建会直接失败。因此，最终应用运行的是构建后的发布产物，而不是 TypeScript 源码或仓库已安装的依赖树。
+仓库构建脚本固定 Pake、Node.js 版本及各平台压缩包的 checksum。脚本先执行官方 client 构建，再打包发布流程使用的同一组 npm package family，计算从 `@deepseek-ai/dsh` 可达的本地 dependency、optional dependency 和 peer dependency 闭包，只把该闭包装入应用资源。随后，Pake 把 Node 可执行文件作为 Tauri sidecar，把 npm 闭包作为普通资源一起打包。Pake 3.15.7 添加生成后的应用图标时会替换已有的资源映射，因此暂存步骤会执行一次与该版本绑定的精确 JavaScript 替换，把图标合并进映射；如果固定的语句发生变化或出现多次，构建会直接失败。因此，最终应用运行的是构建后的发布产物，而不是 TypeScript 源码或仓库已安装的依赖树。
 
 在 macOS 上，Tauri 会使用应用的 entitlement 文件重新签名随包 sidecar。Pake 的空 entitlement 文件会移除官方 Node.js 签名中的权限，导致 V8 无法分配可执行代码内存。因此，桌面 bundle 会选择一份纳入仓库管理的 entitlement 文件，允许 JIT 编译、可执行内存和原生 Node 模块加载。正常运行 Harness 不需要上游二进制中的调试器附加权限和动态加载器环境变量权限，所以该文件不会包含这两项权限。
 

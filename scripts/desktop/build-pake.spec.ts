@@ -5,6 +5,7 @@ import {
   desktopSidecarCapability,
   preservePakeBundleResources,
   runtimeClosure,
+  DESKTOP_WORKSPACE_BUILD_ARGS,
   type PackedArtifact,
 } from './build-pake.ts'
 
@@ -19,6 +20,10 @@ function artifact(
 }
 
 describe('desktop Pake assembly', () => {
+  it('builds the official client profile before release packing', () => {
+    expect(DESKTOP_WORKSPACE_BUILD_ARGS).toEqual(['run', 'build:official'])
+  })
+
   it('maps native hosts to the Node and Tauri sidecar names', () => {
     expect(desktopPlatform('darwin', 'arm64')).toMatchObject({
       targetTriple: 'aarch64-apple-darwin',
