@@ -32,26 +32,47 @@
         - textbox "API 地址":
           - /placeholder: https://api.deepseek.com
         - region "模型目录":
-          - text: 模型目录 已自定义模型目录
-          - button "恢复默认模型"
+          - text: 模型目录 正在使用适配器默认模型
           - textbox "模型 ID 1":
             - /placeholder: 模型 ID
-            - text: private-preview
+            - text: deepseek-flash
           - textbox "显示名称 1":
             - /placeholder: 显示名称
-            - text: Private Preview
-          - button "容量 1" [expanded]:
+            - text: DeepSeek-V41-Flash
+          - button "容量 1":
             - img
           - button "删除模型 1":
             - img
-          - text: 上下文窗口
-          - textbox "上下文窗口 1":
-            - /placeholder: 1M
-            - text: "131072"
-          - text: 最大输出 token 数
-          - textbox "最大输出 token 数 1":
-            - /placeholder: 256K
-            - text: 64K
+          - textbox "模型 ID 2":
+            - /placeholder: 模型 ID
+            - text: deepseek-v4-flash
+          - textbox "显示名称 2":
+            - /placeholder: 显示名称
+            - text: DeepSeek-V4-Flash
+          - button "容量 2":
+            - img
+          - button "删除模型 2":
+            - img
+          - textbox "模型 ID 3":
+            - /placeholder: 模型 ID
+            - text: deepseek-v4-pro
+          - textbox "显示名称 3":
+            - /placeholder: 显示名称
+            - text: DeepSeek-V4-Pro
+          - button "容量 3":
+            - img
+          - button "删除模型 3":
+            - img
+          - textbox "模型 ID 4":
+            - /placeholder: 模型 ID
+            - text: deepseek-v4-flash-vision-exp
+          - textbox "显示名称 4":
+            - /placeholder: 显示名称
+            - text: DeepSeek-V4-Flash-Vision-Exp
+          - button "容量 4":
+            - img
+          - button "删除模型 4":
+            - img
           - button "添加模型":
             - img
             - text: 添加模型
